@@ -7,7 +7,7 @@ client is frontend --(React.js)
 
 you have to open both the folders one by one then run this command
 npm install 
---Note if node Modeules folder is not present in it.
+--Note if node Module folder is not present in it.
 
 
 After npm installed then
