@@ -26,3 +26,17 @@ exports.addCarDetails = function addCarDetails(myObj, callback){
         return callback(null, output);  
     });
 }
+
+
+exports.updateCarDetails = function updateCarDetails(myObj, callback) {
+    console.log(myObj);
+    carSchema.findOneAndUpdate({ _id: myObj.id }, myObj, { upsert: true }, function (err, result) {
+        if (err) {
+            output = { response_code: err.code, error: true, message: err.message };
+        }
+        else {
+            output = { message: "Record Updated", response_code: 200, error: false };
+        }
+        return callback(null, output);
+    });
+}

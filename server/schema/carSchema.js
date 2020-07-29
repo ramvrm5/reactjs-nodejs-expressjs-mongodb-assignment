@@ -4,10 +4,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var carSchema = new Schema({
-    carName: {type:String,required:true,unique:true},
+    carName: {type:String,required:true},
     carType:String,
     priceType:String,
-    basePrice:String,
+    basePrice:Number,
+    rented:Number,
+    availableAfter:Number,
 });
 
 var car = mongoose.model('car',carSchema, 'car');

@@ -22,5 +22,17 @@ router.post('/addCarDetails', function(req, res, next) {
           res.json(obj);
         }
       });
+});
+  
+/*Update carDetails */
+router.post('/updateCarDetails', function (req, res, next) {
+  carHandler.updateCarDetails(req.body, (error, obj) => {
+    if (error) {
+      res.json(error);
+    } else {
+      res.json(obj);
+    }
   });
-  module.exports = router;
+});
+
+module.exports = router;
