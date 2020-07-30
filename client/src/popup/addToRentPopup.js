@@ -108,7 +108,7 @@ class AddToRent extends React.Component {
                 <div className="col-xl-4 col-lg-4">
                     <Modal show={this.state.showModal}>
                         <Modal.Header>
-                            <Modal.Title>UPDATE</Modal.Title>
+                            <Modal.Title>Buy for Rent</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <div className="row">
