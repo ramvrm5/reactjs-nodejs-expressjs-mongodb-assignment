@@ -91,7 +91,7 @@ class AddToRent extends React.Component {
             if (e.target.value > 5) {
                 var overGivenDaysRent = e.target.value - 5;
                 var totalPrice = (overGivenDaysRent * this.state.basePrice) + this.state.basePrice;
-            } else if (e.target.value <= 3) {
+            } else if (e.target.value <= 5) {
                 var totalPrice = this.state.basePrice;
             }
         }
