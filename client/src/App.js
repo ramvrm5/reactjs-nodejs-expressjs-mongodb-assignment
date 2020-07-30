@@ -3,16 +3,24 @@ import React from 'react';
 import $ from 'jquery';
 import ReactDOM from 'react-dom';
 import AddToRent from './popup/addToRentPopup.js';
+import { css } from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 const api_url = 'http://localhost:3000/car/';
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
-      arrayOfList: []
+      arrayOfList: [],
+      loading: true
     }
+    this.getList = this.getList.bind(this);
   }
 
   componentDidMount() {
@@ -30,11 +38,15 @@ class App extends React.Component {
         var tempData = JSON.parse(data);
         var listData = tempData.result;
         this.setState({
-          arrayOfList: listData
+          arrayOfList: listData,
+          loading:false
         })
       }.bind(this),
       error: function (data) {
         console.log(data);
+        this.setState({
+          loading:false
+        })
       }
     });
   }
@@ -57,9 +69,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <button>Add More Cars For Rent</button>
-        </nav> */}
+
         <table className="table table-striped">
           <thead>
             <tr>
