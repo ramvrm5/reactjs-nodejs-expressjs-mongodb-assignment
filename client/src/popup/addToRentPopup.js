@@ -30,7 +30,7 @@ class AddToRent extends React.Component {
     printDocument() {
         const link = document.createElement('a');
         link.setAttribute('target', '_blank');
-        link.setAttribute('href', "D:\WorkSpace\Interview_assesment\reactjs-nodejs-expressjs-mongodb-assignment\server\public\pdf_files\ " + this.state.pdFileName);
+        link.setAttribute('href',"D:\WorkSpace\Interview_assesment\reactjs-nodejs-expressjs-mongodb-assignment\server\public\pdf_files\ "+this.state.pdFileName);
         link.setAttribute('download', this.state.pdFileName);
         document.body.appendChild(link);
         link.click();
@@ -67,7 +67,7 @@ class AddToRent extends React.Component {
                 data = JSON.parse(data);
                 this.setState({
                     toPrint: true,
-                    pdFileName: data.data
+                    pdFileName:data.data
                 })
             }.bind(this),
             error: function (data) {
@@ -78,22 +78,21 @@ class AddToRent extends React.Component {
     }
 
     onhandleChange(e) {
-        let totalPrice = ""
         if (this.state.carType == "SUV") {
-            totalPrice = e.target.value * this.state.basePrice;
+            var totalPrice = e.target.value * this.state.basePrice;
         } else if (this.state.carType == "Sedan") {
             if (e.target.value > 3) {
                 var overGivenDaysRent = e.target.value - 3;
-                totalPrice = (overGivenDaysRent * this.state.basePrice) + this.state.basePrice;
+                var totalPrice = (overGivenDaysRent * this.state.basePrice) + this.state.basePrice;
             } else if (e.target.value <= 3) {
-                totalPrice = this.state.basePrice;
+                var totalPrice = this.state.basePrice;
             }
         } else if (this.state.carType == "Hatchback") {
             if (e.target.value > 5) {
                 var overGivenDaysRent = e.target.value - 5;
-                totalPrice = (overGivenDaysRent * this.state.basePrice) + this.state.basePrice;
+                var totalPrice = (overGivenDaysRent * this.state.basePrice) + this.state.basePrice;
             } else if (e.target.value <= 3) {
-                totalPrice = this.state.basePrice;
+                var totalPrice = this.state.basePrice;
             }
         }
         this.setState({
